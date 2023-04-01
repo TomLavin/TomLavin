@@ -1,0 +1,87 @@
+The below raw json geo code came from https://raw.githubusercontent.com/wireservice/csvkit/master/examples/test_geojson.json
+which drawing is at https://github.com/wireservice/csvkit/blob/master/examples/test_geojson.json
+It shows one coord for a point, 4 coords for a 3 segmented lines object and 5 coords for drawing a square beginning and ending
+at the same coord.
+
+
+{
+	"type": "FeatureCollection",
+	"features": [{
+
+		"geometry": {
+			"type": "Point",
+			"coordinates": [102.0, 0.5]
+		},
+		"properties": {
+			"prop0": "value0"
+		}
+	}, {
+		"type": "Feature",
+		"geometry": {
+			"type": "LineString",
+			"coordinates": [
+				[102.0, 0.0],
+				[103.0, 1.0],
+				[104.0, 0.0],
+				[105.0, 1.0]
+			]
+		},
+		"properties": {
+			"prop0": "value0",
+			"prop1": 0.0
+		}
+	}, {
+		"type": "Feature",
+		"geometry": {
+			"type": "Polygon",
+			"coordinates": [
+				[
+					[100.0, 0.0],
+					[101.0, 0.0],
+					[101.0, 1.0],
+					[100.0, 1.0],
+					[100.0, 0.0]
+				]
+			]
+		},
+		"properties": {
+			"prop0": "value0",
+			"prop1": {
+				"this": "that"
+			}
+		}
+	}]
+}
+
+Here is a link to create geojson from csv https://www.convertcsv.com/csv-to-geojson.htm
+
+and vice versa https://www.convertcsv.com/geojson-to-csv.htm
+where the square part of the above json code is
+{
+		"type": "Feature",
+		"geometry": {
+			"type": "LineString",
+			"coordinates": [
+				[102.0, 0.0],
+				[103.0, 1.0],
+				[104.0, 0.0],
+				[105.0, 1.0]
+			]
+		},
+		"properties": {
+			"prop0": "value0",
+			"prop1": 0.0
+		}
+	}
+	
+and the conversion to csv is:
+	latitude,longitude,altitude,geometry,coordinates,prop0,prop1
+,,,LineString,"102,0,103,1,104,0,105,1",value0,0
+
+which when converted to xlsx is locally saved as 
+GeoJsonConvertedToExcel.xlsx
+
+
+
+
+
